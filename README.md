@@ -52,7 +52,7 @@
       }))
       ````
     
-    * Inicializar tanto `passport` como `passport session`:
+    * Inicializar:
       ````javascript
       app.use(passport.initialize())
       app.use(passport.session())
@@ -60,7 +60,7 @@
     
    * Configurar dos endpoints para login (`.get()`y `.post()`) y uno para logout (`.get()`):
        ````javascript
-       router.get("/login", (req, res) => res.render("auth/login", { "message": req.flash("error") }))
+       router.get("/login", (req, res) => res.render("auth/login", { message: req.flash("error") }))
        router.post("/login", passport.authenticate("local", {
          successRedirect: "/",
          failureRedirect: "/login",
