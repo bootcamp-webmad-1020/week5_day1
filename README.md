@@ -118,11 +118,13 @@ Los roles, almacenados en cada usuario como la propiedad `role`, permiten garant
 
   ````javascript
   // item.model.js
-  const itemSchema = new mongoose.model.Schema{
+  const itemSchema = new mongoose.Schema{
+    name: String,
     owner: {
       type: mongoose.types.ObjectId,
-      rel: 'User
-    }
+      rel: 'User'
+    },
+    /* ... */
   }
   ````
 
