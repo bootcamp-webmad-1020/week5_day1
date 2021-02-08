@@ -118,14 +118,14 @@ Los roles, almacenados en cada usuario como la propiedad `role`, permiten garant
 
   ````javascript
   // item.model.js
-  const itemSchema = new mongoose.Schema{
+  const itemSchema = new mongoose.Schema({
     name: String,
     owner: {
       type: mongoose.types.ObjectId,
       rel: 'User'
     },
     /* ... */
-  }
+  })
   ````
 
 - Almacenando asi el ID del usuario creador:
