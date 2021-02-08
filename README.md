@@ -115,13 +115,27 @@ Los roles, almacenados en cada usuario como la propiedad `role`, permiten garant
 ## Main points: owned items
 
 - Es posible relacionar items en una aplicación con el usuario que los ha creado, disponiendo de una propiedad `owner` en cada item donde almacenar el `ObjectId` de su *owner*:
+
   ````javascript
+  // item.model.js
+  const itemSchema = new mongoose.model.Schema{
+    owner: {
+      type: mongoose.types.ObjectId,
+      rel: 'User
+    }
+  }
+  ````
+
+- Almacenando asi el ID del usuario creador:
+
+  ````javascript
+  // new item route
   Item
     .create({name: req.body.name, /* ... */, owner: req.user._id})
     .then(...
   ````
 
-- Esto permite renderizar en una vista únicamente los items asociados al *owner*:
+- Lo que permite renderizar en una vista únicamente los items asociados al *owner*:
   ````javascript
   Item
     .find({owner: req.user._id})
